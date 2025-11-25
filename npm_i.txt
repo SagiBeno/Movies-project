@@ -1,4 +1,1 @@
-npm install @mui/material @emotion/react @emotion/styled
-npm install @mui/icons-material
-npm install react-router-dom
-npm install react-icons
+npm install @mui/material @emotion/react @emotion/styled react react-dom @mui/icons-material react-router react-router-dom react-icons

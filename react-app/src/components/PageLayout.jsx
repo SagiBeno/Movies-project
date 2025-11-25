@@ -17,7 +17,7 @@ export const PageLayout = ({title,   page,setPage,type,selectedGenres,setSelecte
       <Box>TODO insert children here</Box>
       {/*Oldallapozó*/}
       <Box display='flex' justifyContent='center' sx={{paddingBottom:'60px'}}>
-         TODO insert ContentPagination here
+        <ContentPagination />
       </Box>
      
     </Container>

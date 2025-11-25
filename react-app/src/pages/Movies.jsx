@@ -15,11 +15,14 @@ export const Movies = props => {
 
   console.log(page);
 
-  useEffect(async () => {
-    setLoading(true)
-    setData(await getData({queryKey:['movies','movie',page,selectedGenres]}))
-    setLoading(false)
-    }, []);
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true)
+      setData(await getData({queryKey:['movies','movie',page,selectedGenres]}))
+      setLoading(false)
+    }
+
+  }, []);
     
 
 

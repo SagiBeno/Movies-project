@@ -1,4 +1,4 @@
-const base_url="todo://find.url" // help: https://developer.themoviedb.org/reference/ 
+const base_url="https://api.themoviedb.org/3/discover/" // help: https://developer.themoviedb.org/reference/ 
 const urlGenres=`https://api.themoviedb.org/3/genre/` /*${type}/list?api_key=${import.meta.env.VITE_API_KEY}*/
 
 const getTmdbMetadata = async function () {
@@ -17,7 +17,7 @@ export const getData=async ({queryKey})=>{
         url+='&with_genres='+queryKey[3].join(',')
     console.log('getData url', url);  
 
-    const resp = 'TODO fetch url with apiKey'
+    const resp = await fetch(`${url}&api_key=${gotTmdbMetadata.apiKey}`)
     return await resp.json()
 }
 

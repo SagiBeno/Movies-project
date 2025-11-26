@@ -26,7 +26,7 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
 
   return (
     <>
-      <Card sx={{ width: 345 }}>
+      <Card sx={{ width: 345, boxShadow: '2px 2px 10px gray' }}>
         <CardMedia
           component='img'
           sx={{ height: 200 }}
@@ -42,9 +42,11 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
             {release_date ||first_air_date}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{marginTop: 'auto'}}>
           <Button onClick={() => setOpenModal(true)}>Show more</Button>
-          <Rating style={{marginLeft: 'auto'}} name="half-rating-read" defaultValue={vote_average / 2} precision={0.05} readOnly />
+          {
+            vote_average != 0 ? <Rating style={{marginLeft: 'auto'}} name="half-rating-read" defaultValue={vote_average / 2} precision={0.05} readOnly /> : null
+          }
         </CardActions>
       </Card>
       {

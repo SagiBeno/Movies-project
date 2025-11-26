@@ -24,6 +24,7 @@ export const SearchPage = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setData(null);
     setData(await getSearchData({ queryKey: ['search', selectedType, query, page] }));
     setLoading(false);
   }
@@ -37,11 +38,10 @@ export const SearchPage = () => {
   return (
     <PageLayout title="Search page" page={page} setPage={setPage} type={selectedType}
       selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} data={data}
-      style={{width: '100vw'}}
     >
       <Box mb={2} display="flex" justifyContent="center">
-        <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleInputChange}/>
-        <Button variant="outlined" onClick={handleSearch}><FaSearch /></Button>
+        <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleInputChange} sx={{color: 'white'}}/>
+        <Button variant="outlined" onClick={handleSearch} sx={{color: 'white'}}><FaSearch/></Button>
       </Box>
       <Box mb={2} display="flex" justifyContent="center">
         <ToggleButtonGroup
@@ -57,11 +57,12 @@ export const SearchPage = () => {
       </Box>
 
       {isLoading && <MySpinner />}
-      <Grid>
+      <Grid container spacing={2} justifyContent='center'>
         {data && data.results?.map(obj =>
           <MyCard key={obj.id} {...obj} />
         )}
       </Grid>
+      
     </PageLayout>
   )
 }

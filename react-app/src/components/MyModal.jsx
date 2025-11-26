@@ -62,7 +62,7 @@ export default function MyModal(props) {
                             textAlign: 'center', mb: 2
                         }}
                     >
-                        <img src={poster_path} alt={title} title={title} style={{maxHeight: '400px', maxWidth: '100%', width: 'auto', height: 'auto', borderRadius: '5px', boxShadow: '2px 2px 10px black'}} />
+                        <img src={poster_path} alt={title} title={title} style={{maxHeight: '400px', maxWidth: '100%', width: 'auto', height: 'auto', borderRadius: '5px', boxShadow: '2px 2px 10px 2px gray'}} />
                     </Box>
 
                     <Typography id="modal-modal-description" sx={{ mt: 2, p: 2, textAlign: 'justify' }}>

@@ -18,11 +18,11 @@ export const PageLayout = ({title, children, page,setPage,type,selectedGenres,se
         {children}
       </Box>
       {/*Oldallapozó*/}
-      {data && data.total_pages>1 &&
-        <Box display='flex' justifyContent='center' sx={{paddingBottom:'60px'}}>
-          <ContentPagination page={page} setPage={setPage} />
-        </Box>
-      }
+      <Box display='flex' justifyContent='center' sx={{paddingBottom:'60px'}}>
+          {
+            data && data.total_pages > 1 && <ContentPagination page={page} setPage={setPage} />
+          }
+      </Box>
      
     </Container>
   )

@@ -13,7 +13,7 @@ export const PageLayout = ({title,   page,setPage,type,selectedGenres,setSelecte
           background:'linear-gradient(to right, #e24dc9ff, #d6f36cff)',p:'1rem',
           WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent'
       }}>{title}</Typography>
-      <Genres todo="set props" />
+      <Genres type={type} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
       <Box>TODO insert children here</Box>
       {/*Oldallapozó*/}
       <Box display='flex' justifyContent='center' sx={{paddingBottom:'60px'}}>

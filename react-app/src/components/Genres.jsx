@@ -6,11 +6,17 @@ import { SingleChip } from './SingleChip'
 export const Genres = ({type,selectedGenres,setSelectedGenres}) => {
     const [data, setData] = useState(null)
 
-    // TODO use getGenres
+    async function getGenresF() {
+      const data = await getGenres({queryKey:["genres",type]})
+      console.log(data)
+
+    }
+
+    getGenresF()
 
     data && console.log(data.genres);
     
-    console.log(selectedGenres);
+    //console.log(selectedGenres);
     
   return (
     <Stack direction='row' flexWrap='wrap' justifyContent='center'>  

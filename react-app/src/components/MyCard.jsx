@@ -16,27 +16,36 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Button from '@mui/material/Button';
+import MyModal from './MyModal';
+import Modal from "@mui/material/Modal";
 
 export const MyCard = ({backdrop_path,title, overview, release_date, vote_average, poster_path}) => {
+  const [openModal, setOpenModal] = React.useState(false);
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component='img'
-        sx={{ height: 200 }}
-        image={`http://image.tmdb.org/t/p/w500/${poster_path}`}
-        alt={title}
-        title={title}
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {overview}
-        </Typography>
-      </CardContent>
-    </Card>
+    <>
+      <Card sx={{ width: 345 }}>
+        <CardMedia
+          component='img'
+          sx={{ height: 200 }}
+          image={`http://image.tmdb.org/t/p/w500/${poster_path}`}
+          alt={title}
+          title={title}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button onClick={() => setOpenModal(true)}>Show more</Button>
+        </CardActions>
+      </Card>
+      {
+        openModal && <MyModal />
+      }
+    </>
   )
 }
 

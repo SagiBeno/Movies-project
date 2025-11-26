@@ -27,6 +27,7 @@ export const Movies = props => {
   return (
    <PageLayout title="Movies" page={page} setPage={setPage} type='movie'
     selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres}
+    data={data}
    > 
     {isLoading && <MySpinner/>}
     <Grid container spacing={2} justifyContent='center'>

@@ -2,6 +2,7 @@ import React from 'react'
 import { PageLayout } from '../components/PageLayout'
 import { Grid } from '@mui/material'
 import { MyCard } from '../components/MyCard'
+import { MySpinner } from '../components/MySpinner'
 import { useEffect, useState } from 'react'
 import { getData } from '../utils'
 
@@ -26,7 +27,9 @@ export const TVSeries = props => {
   return (
     <PageLayout title='TV Series' type='tv' page={page} setPage={setPage}
       selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres}
+      data={data}
     >
+      {isLoading && <MySpinner />}
       <Grid container spacing={2} justifyContent='center'>
         {data && data.results?.map(obj =>
           <MyCard key={obj.id} {...obj} />

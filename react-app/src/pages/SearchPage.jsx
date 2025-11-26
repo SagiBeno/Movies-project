@@ -40,8 +40,20 @@ export const SearchPage = () => {
       selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} data={data}
     >
       <Box mb={2} display="flex" justifyContent="center">
-        <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleInputChange} sx={{color: 'white'}}/>
-        <Button variant="outlined" onClick={handleSearch} sx={{color: 'white'}}><FaSearch/></Button>
+        <TextField id="filled-search" label="Search" type="search" variant="filled" onChange={handleInputChange}
+          sx={{
+            '& .MuiInputLabel-root': {
+              color: 'white',
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: 'lightgray',
+            },
+            '& .MuiFilledInput-root': {
+              color: 'white',
+            }
+          }}
+        />
+        <Button variant="outlined" onClick={handleSearch}><FaSearch /></Button>
       </Box>
       <Box mb={2} display="flex" justifyContent="center">
         <ToggleButtonGroup

@@ -15,7 +15,7 @@ export const Genres = ({type,selectedGenres,setSelectedGenres}) => {
   }, [type])
   
   return (
-    <Stack direction='row' flexWrap='wrap' justifyContent='center'>  
+    <Stack direction='row' flexWrap='wrap' justifyContent='center' style={{marginBottom: '10px'}}>  
         {data && data.genres.map(obj=>
             <SingleChip key={obj.id} {...obj} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
         )}

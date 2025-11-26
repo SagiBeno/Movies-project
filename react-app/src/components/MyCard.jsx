@@ -35,7 +35,7 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {title || name}
           </Typography>
           <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
             {release_date}

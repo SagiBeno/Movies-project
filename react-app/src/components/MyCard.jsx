@@ -26,7 +26,7 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
 
   return (
     <>
-      <Card sx={{ width: 345, height: 420, display: 'flex', flexDirection: 'column', boxShadow: '1px 2px 8px gray', '&:hover': {boxShadow: '0px 4px 16px whitesmoke'}, borderRadius: '6px'}}>
+      <Card onClick={() => setOpenModal(true)} sx={{ cursor: 'pointer', width: 345, height: 420, display: 'flex', flexDirection: 'column', '&:hover': {boxShadow: '0px 4px 16px whitesmoke'}, borderRadius: '6px'}}>
         <CardMedia
           component='img'
           sx={{ height: 200 }}

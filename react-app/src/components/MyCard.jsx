@@ -20,7 +20,7 @@ import Button from '@mui/material/Button';
 import MyModal from './MyModal';
 import Modal from "@mui/material/Modal";
 
-export const MyCard = ({backdrop_path,title, overview, release_date, vote_average, poster_path}) => {
+export const MyCard = ({backdrop_path,title, name, overview, release_date, vote_average, poster_path}) => {
   const [openModal, setOpenModal] = React.useState(false);
 
   return (
@@ -35,7 +35,7 @@ export const MyCard = ({backdrop_path,title, overview, release_date, vote_averag
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {title || name}
           </Typography>
         </CardContent>
         <CardActions>

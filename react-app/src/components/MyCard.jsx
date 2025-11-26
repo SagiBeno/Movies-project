@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { img_300 } from '../utils'
 
 import { styled } from '@mui/material/styles';
@@ -17,7 +17,26 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-export const MyCard = ({backdrop_path,title, overview, release_date, vote_average}) => {
-  // TODO show nice Card with content came from props
+export const MyCard = ({backdrop_path,title, overview, release_date, vote_average, poster_path}) => {
+
+  return (
+    <Card sx={{ maxWidth: 345 }}>
+      <CardMedia
+        component='img'
+        sx={{ height: 200 }}
+        image={`http://image.tmdb.org/t/p/w500/${poster_path}`}
+        alt={title}
+        title={title}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          {overview}
+        </Typography>
+      </CardContent>
+    </Card>
+  )
 }
 

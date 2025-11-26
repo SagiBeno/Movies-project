@@ -3,7 +3,7 @@ import React from 'react'
 import { ContentPagination } from './ContentPagination'
 import { Genres } from './Genres'
 
-export const PageLayout = ({title,   page,setPage,type,selectedGenres,setSelectedGenres}) => {
+export const PageLayout = ({title, children, page,setPage,type,selectedGenres,setSelectedGenres}) => {
   return (
     <Container maxWidth={false} 
         sx={{background:'linear-gradient(to right, #082f49, #075985)',
@@ -14,10 +14,10 @@ export const PageLayout = ({title,   page,setPage,type,selectedGenres,setSelecte
           WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent'
       }}>{title}</Typography>
       <Genres type={type} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
-      <Box>TODO insert children here</Box>
+      <Box>{children}</Box>
       {/*Oldallapozó*/}
       <Box display='flex' justifyContent='center' sx={{paddingBottom:'60px'}}>
-        <ContentPagination />
+        <ContentPagination setPage={setPage} />
       </Box>
      
     </Container>

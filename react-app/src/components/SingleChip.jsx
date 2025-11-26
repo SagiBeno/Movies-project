@@ -19,7 +19,15 @@ export const SingleChip = ({id,name,selectedGenres,setSelectedGenres}) => {
 
     return (
         <Stack direction="row" spacing={1} sx={{padding:'5px'}}>
-            <Chip label={name} onClick={handleClick} color="primary"/>
+            <Chip
+                label={name}
+                clickable
+                onClick={handleClick}
+                className='singleChip'
+                icon={isSelected?<MdOutlineRadioButtonChecked/>:<MdOutlineRadioButtonUnchecked/>}
+                sx={isSelected?{color:"white",background:"#818cf8"}:{color:"black",background:"#818cf8 "}}
+                
+            />
         </Stack>
     );
 }

@@ -18,8 +18,6 @@ export const Movies = props => {
     async function fetchData() {
       setLoading(true)
       setData(await getData({queryKey:['movies','movie',page,selectedGenres]}))
-      const test = await getData({queryKey:['movies','movie',page,selectedGenres]})
-      console.log(test)
       setLoading(false)
     }
 

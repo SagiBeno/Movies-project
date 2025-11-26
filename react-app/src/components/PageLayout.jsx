@@ -14,10 +14,12 @@ export const PageLayout = ({title, children, page,setPage,type,selectedGenres,se
           WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent'
       }}>{title}</Typography>
       <Genres type={type} selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} />
-      <Box>{children}</Box>
+      <Box>
+        {children}
+      </Box>
       {/*Oldallapozó*/}
       <Box display='flex' justifyContent='center' sx={{paddingBottom:'60px'}}>
-        <ContentPagination setPage={setPage} />
+        <ContentPagination page={page} setPage={setPage} />
       </Box>
      
     </Container>

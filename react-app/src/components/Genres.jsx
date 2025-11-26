@@ -12,7 +12,7 @@ export const Genres = ({type,selectedGenres,setSelectedGenres}) => {
       setData(data)
     }
     fetchGenres()
-  }, [])
+  }, [type])
   
   return (
     <Stack direction='row' flexWrap='wrap' justifyContent='center'>  

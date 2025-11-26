@@ -21,7 +21,7 @@ import MyModal from './MyModal';
 import Modal from "@mui/material/Modal";
 import { Rating } from '@mui/material';
 
-export const MyCard = ({title, overview, release_date, vote_average, poster_path}) => {
+export const MyCard = ({title, overview, release_date, vote_average, poster_path, name, first_air_date}) => {
   const [openModal, setOpenModal] = React.useState(false);
 
   return (
@@ -39,7 +39,7 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
             {title || name}
           </Typography>
           <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-            {release_date}
+            {release_date ||first_air_date}
           </Typography>
         </CardContent>
         <CardActions>
@@ -48,7 +48,7 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
         </CardActions>
       </Card>
       {
-        openModal && <MyModal open={openModal} setOpenModal={setOpenModal} poster_path={poster_path} overview={overview} title={title}/>
+        openModal && <MyModal open={openModal} setOpenModal={setOpenModal} poster_path={poster_path} overview={overview} title={title} name={name}/>
       }
     </>
   )

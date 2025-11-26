@@ -9,6 +9,7 @@ export default function MyModal(props) {
     const title = props?.title
     const overwiev = props?.overview
     const poster_path = `http://image.tmdb.org/t/p/w500/${props?.poster_path}`
+    const name = props?.name
 
     const handleClose = () => {
         props.setOpenModal(false)
@@ -42,7 +43,7 @@ export default function MyModal(props) {
             >
                 <Box xs={{display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', p: 2, position: 'relative'}}>
                     <Typography id="modal-modal-title" variant="h6" component="h2" sx={{textAlign: 'center', flexGrow: 1, pr: 4}}>
-                        {title}
+                        {title || name}
                     </Typography>
 
                     <IconButton sx={{position: 'absolute', right: 8, top: 8}} onClick={handleClose}>

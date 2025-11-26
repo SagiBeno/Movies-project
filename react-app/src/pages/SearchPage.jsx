@@ -37,6 +37,7 @@ export const SearchPage = () => {
   return (
     <PageLayout title="Search page" page={page} setPage={setPage} type={selectedType}
       selectedGenres={selectedGenres} setSelectedGenres={setSelectedGenres} data={data}
+      style={{width: '100vw'}}
     >
       <Box mb={2} display="flex" justifyContent="center">
         <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleInputChange}/>

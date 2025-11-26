@@ -19,6 +19,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import MyModal from './MyModal';
 import Modal from "@mui/material/Modal";
+import { Rating } from '@mui/material';
 
 export const MyCard = ({title, overview, release_date, vote_average, poster_path}) => {
   const [openModal, setOpenModal] = React.useState(false);
@@ -43,6 +44,7 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
         </CardContent>
         <CardActions>
           <Button onClick={() => setOpenModal(true)}>Show more</Button>
+          <Rating style={{marginLeft: 'auto'}} name="half-rating-read" defaultValue={vote_average / 2} precision={0.05} readOnly />
         </CardActions>
       </Card>
       {

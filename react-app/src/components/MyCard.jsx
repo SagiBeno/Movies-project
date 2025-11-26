@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { img_300 } from '../utils'
 
 import { styled } from '@mui/material/styles';
@@ -16,31 +16,36 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Button from '@mui/material/Button';
+import MyModal from './MyModal';
+import Modal from "@mui/material/Modal";
 
-export const MyCard = ({backdrop_path,title, overview, release_date, vote_average}) => {
+export const MyCard = ({backdrop_path,title, overview, release_date, vote_average, poster_path}) => {
+  const [openModal, setOpenModal] = React.useState(false);
+
   return (
-    <Card sx={{ maxWidth: 345, margin:2 }}>
-      <CardHeader>
-        <Typography variant='h6'>{title}</Typography>
-      </CardHeader>
-      <CardMedia
-        component="img"
-        height="194"
-        image={img_300+backdrop_path}
-        alt={title}
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {overview}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Release Date: {release_date}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Rating: {vote_average}
-        </Typography>
-      </CardContent>
-    </Card>
+    <>
+      <Card sx={{ width: 345 }}>
+        <CardMedia
+          component='img'
+          sx={{ height: 200 }}
+          image={`http://image.tmdb.org/t/p/w500/${poster_path}`}
+          alt={title}
+          title={title}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button onClick={() => setOpenModal(true)}>Show more</Button>
+        </CardActions>
+      </Card>
+      {
+        openModal && <MyModal open={openModal} />
+      }
+    </>
   )
 }
 

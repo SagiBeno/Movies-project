@@ -4,22 +4,16 @@ import { Stack } from '@mui/material'
 import { SingleChip } from './SingleChip'
 
 export const Genres = ({type,selectedGenres,setSelectedGenres}) => {
-    const [data, setData] = useState(null)
+  const [data, setData] = useState(null)
 
-    async function getGenresF() {
+  useEffect(() => {
+    async function fetchGenres() {
       const data = await getGenres({queryKey:["genres",type]})
-      console.log(data)
       setData(data)
     }
-
-    useEffect(() => {
-      getGenresF()
-    }, [type])
-
-    data && console.log(data.genres);
-    
-    //console.log(selectedGenres);
-    
+    fetchGenres()
+  }, [type])
+  
   return (
     <Stack direction='row' flexWrap='wrap' justifyContent='center'>  
         {data && data.genres.map(obj=>

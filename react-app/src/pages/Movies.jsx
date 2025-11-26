@@ -1,31 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PageLayout } from '../components/PageLayout'
 import { Grid } from '@mui/material'
 import { getData } from '../utils'
 import { MyCard } from '../components/MyCard'
 import { MySpinner } from '../components/MySpinner'
-import { useState } from 'react'
 
 
 export const Movies = props => {
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = useState(1);
   const [selectedGenres,setSelectedGenres]=useState([])
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
   const [isLoading, setLoading] = useState(false)
 
   console.log(page);
 
-  async function fetchData() {
-    setLoading(true)
-    setData(await getData({queryKey:['movies','movie',page,selectedGenres]}))
-    setLoading(false)
-  }
-
   useEffect(() => {
-    fetchData();
-  }, []);
-    
+    async function fetchData() {
+      setLoading(true)
+      setData(await getData({queryKey:['movies','movie',page,selectedGenres]}))
+      setLoading(false)
+    }
 
+    fetchData()
+  }, [page, selectedGenres]);
 
   return (
    <PageLayout title="Movies" page={page} setPage={setPage} type='movie'
@@ -37,7 +34,6 @@ export const Movies = props => {
        <MyCard key={obj.id} {...obj}/>
       )}
     </Grid>
-
    </PageLayout>
   )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 import { ContentPagination } from './ContentPagination'
 import { Genres } from './Genres'
 
-export const PageLayout = ({title,children,page,setPage,type,selectedGenres,setSelectedGenres}) => {
+export const PageLayout = ({title, children, page,setPage,type,selectedGenres,setSelectedGenres}) => {
   return (
     <Container maxWidth={false} 
         sx={{background:'linear-gradient(to right, #082f49, #075985)',

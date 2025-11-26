@@ -26,7 +26,7 @@ export const MyCard = ({title, overview, release_date, vote_average, poster_path
 
   return (
     <>
-      <Card sx={{ width: 345, height: 400, display: 'flex', flexDirection: 'column', boxShadow: '2px 2px 10px gray' }}>
+      <Card sx={{ width: 345, height: 420, display: 'flex', flexDirection: 'column', boxShadow: '2px 2px 10px gray' }}>
         <CardMedia
           component='img'
           sx={{ height: 200 }}

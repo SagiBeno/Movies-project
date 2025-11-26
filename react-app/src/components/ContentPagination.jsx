@@ -7,6 +7,7 @@ export const ContentPagination=({page,setPage})=> {
 
   const handleChange = (event, value) => {
     setPage(value);
+    window.scrollTo({ top: 0, behavior: "smooth" })
   };
 
   return (

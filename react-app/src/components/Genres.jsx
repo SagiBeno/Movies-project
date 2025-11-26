@@ -9,10 +9,12 @@ export const Genres = ({type,selectedGenres,setSelectedGenres}) => {
     async function getGenresF() {
       const data = await getGenres({queryKey:["genres",type]})
       console.log(data)
-
+      setData(data)
     }
 
-    getGenresF()
+    useEffect(() => {
+      getGenresF()
+    }, [type])
 
     data && console.log(data.genres);
     

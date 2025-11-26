@@ -1,1 +1,5 @@
 npm install @mui/material @emotion/react @emotion/styled react react-dom @mui/icons-material react-router react-router-dom react-icons
+
+npm install -D netlify-cli
+
+npx netlify dev --functions .netlify/functions

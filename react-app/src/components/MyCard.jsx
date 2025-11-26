@@ -18,6 +18,29 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 export const MyCard = ({backdrop_path,title, overview, release_date, vote_average}) => {
-  // TODO show nice Card with content came from props
+  return (
+    <Card sx={{ maxWidth: 345, margin:2 }}>
+      <CardHeader>
+        <Typography variant='h6'>{title}</Typography>
+      </CardHeader>
+      <CardMedia
+        component="img"
+        height="194"
+        image={img_300+backdrop_path}
+        alt={title}
+      />
+      <CardContent>
+        <Typography variant="body2" color="text.secondary">
+          {overview}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Release Date: {release_date}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Rating: {vote_average}
+        </Typography>
+      </CardContent>
+    </Card>
+  )
 }
 

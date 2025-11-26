@@ -1,5 +1,4 @@
-/** GET /.netlify/functions/tmdb-metadata */
-module.exports.handler = async () => {
+async function tmdbMetadata(event, context) {
     const apiKey = process?.env?.VITE_TMDB_API_KEY;
     // respond with {apiKey, error}
     return {
@@ -7,3 +6,5 @@ module.exports.handler = async () => {
         body: JSON.stringify({ apiKey: apiKey, error: null }),
     };
 }
+
+module.exports = { tmdbMetadata, handler: tmdbMetadata };

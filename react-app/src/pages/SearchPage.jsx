@@ -40,7 +40,19 @@ export const SearchPage = () => {
       style={{width: '100vw'}}
     >
       <Box mb={2} display="flex" justifyContent="center">
-        <TextField id="outlined-basic" label="Search" variant="outlined" onChange={handleInputChange}/>
+        <TextField id="filled-search" label="Search" type="search" variant="filled" onChange={handleInputChange}
+          sx={{
+            '& .MuiInputLabel-root': {
+              color: 'white',
+            },
+            '& .MuiInputLabel-root.Mui-focused': {
+              color: 'lightgray',
+            },
+            '& .MuiFilledInput-root': {
+              color: 'white',
+            }
+          }}
+        />
         <Button variant="outlined" onClick={handleSearch}><FaSearch /></Button>
       </Box>
       <Box mb={2} display="flex" justifyContent="center">

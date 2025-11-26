@@ -1,5 +1,6 @@
 const base_url="https://api.themoviedb.org/3/discover/" // help: https://developer.themoviedb.org/reference/ 
 const urlGenres=`https://api.themoviedb.org/3/genre/` /*${type}/list?api_key=${import.meta.env.VITE_API_KEY}*/
+const urlSearch=`https://api.themoviedb.org/3/search/` // ${type}?api_key=${import.meta.env.VITE_API_KEY}&query={query}&page={page}
 
 const getTmdbMetadata = async function () {
     const resp = await fetch('/.netlify/functions/tmdb-metadata');
@@ -29,8 +30,18 @@ export const getGenres=async ({queryKey})=>{
     const url=urlGenres+queryKey[1]+"/list"
     console.log('getGenres url', url);  
 
-    //const resp = fetch url with apiKey
     const resp = await fetch(`${url}?api_key=${gotTmdbMetadata.apiKey}`)
+    return await resp.json()
+}
+
+export const getSearchData=async ({queryKey})=>{
+    console.log('getSearchData queryKey', queryKey);
+    const gotTmdbMetadata = await getTmdbMetadata()
+
+    let url=`${urlSearch}${queryKey[1]}?api_key=${gotTmdbMetadata.apiKey}&query=${queryKey[2]}&page=${queryKey[3]}`
+    console.log('getSearchData url', url);
+
+    const resp = await fetch(url)
     return await resp.json()
 }
 

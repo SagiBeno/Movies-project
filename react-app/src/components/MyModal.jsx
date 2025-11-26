@@ -2,6 +2,12 @@ import Modal from "@mui/material/Modal";
 import Typography from '@mui/material/Typography';
 
 export default function MyModal(props) {
+    const open = props?.open
+
+    const handleClose = () => {
+        
+    }
+
     return (
         <Modal
             open={open}

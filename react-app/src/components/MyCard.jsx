@@ -43,7 +43,7 @@ export const MyCard = ({backdrop_path,title, overview, release_date, vote_averag
         </CardActions>
       </Card>
       {
-        openModal && <MyModal />
+        openModal && <MyModal open={openModal} />
       }
     </>
   )
